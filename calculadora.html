@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f4f9; }
+    .calc { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    input { width: 100%; height: 50px; font-size: 1.2rem; margin-bottom: 10px; text-align: right; }
+    button { width: 60px; height: 60px; margin: 5px; font-size: 1.2rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <input type="text" id="display" disabled>
+    <div>
+      <button onclick="limpar()">C</button>
+      <button onclick="add('/')">/</button>
+      <button onclick="add('*')">*</button>
+      <button onclick="add('-')">-</button>
+    </div>
+    <div>
+      <button onclick="add('7')">7</button>
+      <button onclick="add('8')">8</button>
+      <button onclick="add('9')">9</button>
+      <button onclick="add('+')">+</button>
+    </div>
+    <div>
+      <button onclick="add('4')">4</button>
+      <button onclick="add('5')">5</button>
+      <button onclick="add('6')">6</button>
+      <button onclick="calcular()">=</button>
+    </div>
+    <div>
+      <button onclick="add('1')">1</button>
+      <button onclick="add('2')">2</button>
+      <button onclick="add('3')">3</button>
+      <button onclick="add('0')">0</button>
+    </div>
+  </div>
+  <script>
+    function add(value) {
+      document.getElementById('display').value += value;
+    }
+    function limpar() {
+      document.getElementById('display').value = '';
+    }
+    function calcular() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch {
+        document.getElementById('display').value = 'Erro';
+      }
+    }
+  </script>
+</body>
+</html>
